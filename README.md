@@ -12,8 +12,8 @@ npm run build      # type-check + production build to dist/
 
 | # | Game | Status |
 | --- | --- | --- |
-| 01 | Serpentine (snake-style) | Playable |
-| 02 | Brick Bash (brick breaker) | Planned |
+| 01 | Serpentine (snake-style) | Not in repo (skipped) |
+| 02 | Brick Bash (brick breaker) | Playable |
 | 03 | Stackfall (falling blocks) | Planned |
 | 04 | Klondike (solitaire) | Planned |
 | 05 | Dot Maze (maze chaser) | Planned |
@@ -39,13 +39,14 @@ src/
     settings.ts        persisted settings with subscribe()
     highscores.ts      top-10 tables
   ui/
+    icons.ts           inlined Lucide icons
     lobby.ts           card grid with animated previews
     gameScreen.ts      runner: HUD, canvas scaling, start/pause/game over, initials
     settingsDialog.ts  sound, volume, touch scheme, scanlines, reduced motion
     modes.ts           per-game mode selection
   games/
     registry.ts        list of playable games
-    snake.ts
+    brickbash.ts
 ```
 
 ## Adding a game
@@ -90,6 +91,10 @@ Each mode in `GameDef.modes` has its own top-10 table. For time-based games, set
 ### Sound
 
 Call `ctx.sfx.play('eat' | 'hit' | 'shoot' | 'explode' | 'line' | ...)` for a preset, or `ctx.sfx.tone({...})` / `ctx.sfx.noise(...)` for a custom sound. Audio unlocks on the first user gesture.
+
+## Deploy
+
+`.github/workflows/pages.yml` builds the site and publishes `dist/` to GitHub Pages on every push to `main` (or run it by hand from the Actions tab). In the repo, set Settings → Pages → Source to **GitHub Actions** once. `vite.config.ts` uses a relative `base`, so the build works at `https://<owner>.github.io/<repo>/`.
 
 ## Storage
 
