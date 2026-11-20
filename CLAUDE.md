@@ -8,9 +8,9 @@ Context for Claude Code. Read README.md first; it documents the architecture and
 - `npm run build`: runs `tsc` and then `vite build`. It must pass with zero errors before a game counts as done.
 
 ## State
-- Done: the lobby, the runner (`ui/gameScreen.ts`), input, audio, high scores, settings, Brick Bash, Stackfall, Klondike, Dot Maze, Hop Home, Star Siege and Rock Splitter. The framework was rebuilt from the README spec because the original `src/` was never committed.
+- Done: the lobby, the runner (`ui/gameScreen.ts`), input, audio, high scores, settings, Brick Bash, Stackfall, Klondike, Dot Maze, Hop Home, Star Siege, Rock Splitter and Mine Field. The framework was rebuilt from the README spec because the original `src/` was never committed.
 - Serpentine (`games/snake.ts`) was never committed and is skipped for now.
-- Next: the games in `games/registry.ts` → `upcoming`, built in this order: Mine Field, Doubles.
+- Next: the games in `games/registry.ts` → `upcoming`, built in this order: Doubles.
 - After all of them: a polish pass covering transitions, mobile layout checks and an accessibility audit.
 - Deploy: `.github/workflows/pages.yml` builds and publishes `dist/` to GitHub Pages on every push to `main`.
 

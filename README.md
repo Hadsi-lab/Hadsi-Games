@@ -20,7 +20,7 @@ npm run build      # type-check + production build to dist/
 | 06 | Hop Home (road crosser) | Playable |
 | 07 | Star Siege (space shooter) | Playable |
 | 08 | Rock Splitter (asteroid blaster) | Playable |
-| 09 | Mine Field (minesweeper) | Planned |
+| 09 | Mine Field (minesweeper) | Playable |
 | 10 | Doubles (2048-style) | Planned |
 
 ## Structure
@@ -53,6 +53,7 @@ src/
     hophome.ts
     starsiege.ts
     rocksplitter.ts
+    minefield.ts
 ```
 
 ## Adding a game
