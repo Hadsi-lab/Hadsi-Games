@@ -17,7 +17,7 @@ npm run build      # type-check + production build to dist/
 | 03 | Stackfall (falling blocks) | Playable |
 | 04 | Klondike (solitaire) | Playable |
 | 05 | Dot Maze (maze chaser) | Playable |
-| 06 | Hop Home (road crosser) | Planned |
+| 06 | Hop Home (road crosser) | Playable |
 | 07 | Star Siege (space shooter) | Planned |
 | 08 | Rock Splitter (asteroid blaster) | Planned |
 | 09 | Mine Field (minesweeper) | Planned |
@@ -50,6 +50,7 @@ src/
     stackfall.ts
     klondike.ts
     dotmaze.ts
+    hophome.ts
 ```
 
 ## Adding a game
