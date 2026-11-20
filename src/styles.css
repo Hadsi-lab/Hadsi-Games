@@ -235,7 +235,7 @@ a.lb-card:focus-visible { box-shadow: inset 0 0 0 4px var(--mn-accent); }
 .gs-dpad__left { grid-area: left; }
 .gs-dpad__right { grid-area: right; }
 .gs-buttons { display: flex; gap: 16px; margin-left: auto; }
-.gs-action { width: 68px; height: 68px; font: inherit; font-size: 14px; border-radius: 50% !important; }
+.gs-action { width: 72px; height: 72px; font: inherit; font-size: 10px; border-radius: 50% !important; }
 
 @media (max-width: 480px) {
   .gs-hud { gap: 8px; padding: 6px 8px; }
