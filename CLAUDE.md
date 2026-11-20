@@ -8,13 +8,15 @@ Context for Claude Code. Read README.md first; it documents the architecture and
 - `npm run build`: runs `tsc` and then `vite build`. It must pass with zero errors before a game counts as done.
 
 ## State
-- Done: the lobby, the runner (`ui/gameScreen.ts`), input, audio, high scores, settings, and Serpentine (`games/snake.ts`).
-- Next: the nine games in `games/registry.ts` → `upcoming`, built in this order: Brick Bash, Stackfall, Klondike, Dot Maze, Hop Home, Star Siege, Rock Splitter, Mine Field, Doubles.
-- After all ten: a polish pass covering transitions, mobile layout checks and an accessibility audit.
+- Done: the lobby, the runner (`ui/gameScreen.ts`), input, audio, high scores, settings, and Brick Bash (`games/brickbash.ts`). The framework was rebuilt from the README spec because the original `src/` was never committed.
+- Serpentine (`games/snake.ts`) was never committed and is skipped for now.
+- Next: the games in `games/registry.ts` → `upcoming`, built in this order: Stackfall, Klondike, Dot Maze, Hop Home, Star Siege, Rock Splitter, Mine Field, Doubles.
+- After all of them: a polish pass covering transitions, mobile layout checks and an accessibility audit.
+- Deploy: `.github/workflows/pages.yml` builds and publishes `dist/` to GitHub Pages on every push to `main`.
 
 ## Rules for every new game
 - Create one file, `src/games/<id>.ts`, that exports a `GameDef`. Add it to `games` and remove its entry from `upcoming`.
-- Implement `init / update(dt) / render / handleInput / destroy`. Make all motion frame-rate independent (scale by `dt`, or use a fixed-step accumulator as in snake.ts).
+- Implement `init / update(dt) / render / handleInput / destroy`. Make all motion frame-rate independent (scale by `dt`, or use a fixed-step accumulator; brickbash.ts sub-steps ball movement).
 - Draw only on the canvas, in logical units (`def.width × def.height`). Never touch the DOM. The runner owns the start, pause, game over and initials screens.
 - Call `ctx.setScore` as the score changes. Call `ctx.gameOver(score, { won })` once at the end.
 - Write a `preview(g, t, w, h)` lobby animation at 320×200 that's cheap to draw and has no state.

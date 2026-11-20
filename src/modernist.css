@@ -1,0 +1,124 @@
+/* Modernist design system (vendored). Do not edit; put app overrides in styles.css. */
+:root {
+  --mn-bg: #f3f2f2;
+  --mn-fg: #201e1d;
+  --mn-accent: #ec3013;
+  --mn-muted: #6b6866;
+  --mn-rule: 2px solid var(--mn-fg);
+  --mn-font: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  --mn-space-1: 4px;
+  --mn-space-2: 8px;
+  --mn-space-3: 16px;
+  --mn-space-4: 24px;
+  --mn-space-5: 40px;
+  --mn-space-6: 64px;
+  --mn-radius: 0;
+}
+
+.mn, .mn-dialog { font-family: var(--mn-font); color: var(--mn-fg); }
+.mn *, .mn-dialog * { border-radius: var(--mn-radius); }
+
+.mn-display { font-weight: 800; font-size: clamp(48px, 10vw, 120px); line-height: 0.9; letter-spacing: -0.04em; margin: 0; }
+.mn-h2 { font-weight: 800; font-size: 28px; letter-spacing: -0.02em; margin: 0; }
+.mn-eyebrow { font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 var(--mn-space-2); }
+.mn-label { font-weight: 600; font-size: 15px; }
+
+.mn-btn {
+  font: 600 15px var(--mn-font);
+  min-height: 44px;
+  padding: 0 var(--mn-space-4);
+  border: var(--mn-rule);
+  background: transparent;
+  color: var(--mn-fg);
+  cursor: pointer;
+}
+.mn-btn--primary { background: var(--mn-fg); color: var(--mn-bg); }
+.mn-btn:hover { background: var(--mn-accent); border-color: var(--mn-accent); color: #fff; }
+
+.mn-icon-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: var(--mn-rule);
+  background: transparent;
+  color: var(--mn-fg);
+  cursor: pointer;
+}
+.mn-icon-btn:hover { background: var(--mn-fg); color: var(--mn-bg); }
+
+:where(.mn, .mn-dialog) :focus-visible { outline: 2px solid var(--mn-accent); outline-offset: 2px; }
+
+.mn-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: var(--mn-space-3);
+  background: rgb(32 30 29 / 0.55);
+}
+.mn-dialog {
+  width: min(440px, 100%);
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+  background: var(--mn-bg);
+  border: var(--mn-rule);
+}
+.mn-dialog__head, .mn-dialog__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--mn-space-3) var(--mn-space-4);
+}
+.mn-dialog__head { border-bottom: var(--mn-rule); }
+.mn-dialog__foot { border-top: var(--mn-rule); justify-content: flex-end; }
+
+.mn-field-list { display: flex; flex-direction: column; }
+.mn-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--mn-space-3);
+  min-height: 56px;
+  padding: var(--mn-space-2) var(--mn-space-4);
+  border: 0;
+  border-bottom: 1px solid rgb(32 30 29 / 0.2);
+  margin: 0;
+}
+.mn-field:last-child { border-bottom: 0; }
+fieldset.mn-field > legend { float: left; padding: 0; }
+
+.mn-switch {
+  appearance: none;
+  width: 48px;
+  height: 26px;
+  border: var(--mn-rule);
+  background: var(--mn-bg);
+  position: relative;
+  cursor: pointer;
+  margin: 0;
+  flex: none;
+}
+.mn-switch::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  background: var(--mn-fg);
+  transition: transform 0.15s;
+}
+.mn-switch:checked { background: var(--mn-accent); border-color: var(--mn-accent); }
+.mn-switch:checked::after { transform: translateX(22px); background: #fff; }
+
+.mn-range { width: 160px; accent-color: var(--mn-accent); min-height: 44px; }
+
+.mn-segmented { display: flex; border: var(--mn-rule); }
+.mn-segmented label { position: relative; }
+.mn-segmented input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.mn-segmented span { display: grid; place-items: center; min-height: 40px; padding: 0 var(--mn-space-3); font-weight: 600; }
+.mn-segmented label + label span { border-left: var(--mn-rule); }
+.mn-segmented input:checked + span { background: var(--mn-fg); color: var(--mn-bg); }
+.mn-segmented input:focus-visible + span { outline: 2px solid var(--mn-accent); outline-offset: -4px; }
