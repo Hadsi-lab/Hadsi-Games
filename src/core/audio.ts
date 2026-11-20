@@ -101,6 +101,23 @@ const presets: Record<SfxName, () => void> = {
   },
   start: () => tone({ freq: 330, to: 990, duration: 0.18, type: 'triangle', volume: 0.25 }),
   pause: () => tone({ freq: 440, to: 220, duration: 0.1, type: 'triangle', volume: 0.2 }),
+  move: () => tone({ freq: 220, duration: 0.03, type: 'square', volume: 0.08 }),
+  rotate: () => tone({ freq: 480, to: 620, duration: 0.05, type: 'triangle', volume: 0.15 }),
+  drop: () => tone({ freq: 160, to: 70, duration: 0.09, type: 'square', volume: 0.22 }),
+  card: () => noise({ duration: 0.06, volume: 0.25, filter: 4000 }),
+  flag: () => tone({ freq: 880, to: 660, duration: 0.07, type: 'triangle', volume: 0.18 }),
+  reveal: () => tone({ freq: 600, duration: 0.03, type: 'sine', volume: 0.15 }),
+  merge: () => tone({ freq: 330, to: 660, duration: 0.08, type: 'triangle', volume: 0.18 }),
+  hop: () => tone({ freq: 300, to: 520, duration: 0.06, type: 'square', volume: 0.12 }),
+  splash: () => noise({ duration: 0.35, volume: 0.35, filter: 2600 }),
+  thrust: () => noise({ duration: 0.12, volume: 0.12, filter: 500 }),
+  warp: () => tone({ freq: 1200, to: 80, duration: 0.3, type: 'sine', volume: 0.22 }),
+  chomp: () => tone({ freq: 520, to: 260, duration: 0.05, type: 'triangle', volume: 0.12 }),
+  power: () => {
+    [300, 450, 600].forEach((f, i) => tone({ freq: f, duration: 0.08, type: 'square', volume: 0.15, delay: i * 0.06 }));
+  },
+  ghost: () => tone({ freq: 200, to: 1400, duration: 0.25, type: 'sawtooth', volume: 0.15 }),
+  tick: () => tone({ freq: 1000, duration: 0.02, type: 'square', volume: 0.08 }),
 };
 
 export const sfx: Sfx = {

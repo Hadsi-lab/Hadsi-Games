@@ -85,20 +85,22 @@ export class InputManager {
       e.preventDefault();
       c.setPointerCapture?.(e.pointerId);
       start = { x: e.clientX, y: e.clientY, t: performance.now(), id: e.pointerId };
-      if (this.def.touch.pointer) this.emit({ kind: 'pointer', phase: 'down', ...this.toLogical(e) });
+      if (this.def.touch.pointer)
+        this.emit({ kind: 'pointer', phase: 'down', button: e.button, pointerType: e.pointerType, ...this.toLogical(e) });
     };
     const move = (e: PointerEvent) => {
       if (!this.enabled() || !this.def.touch.pointer) return;
       // Mouse hover also moves; touch only while pressed.
       if (e.pointerType !== 'mouse' && !start) return;
-      this.emit({ kind: 'pointer', phase: 'move', ...this.toLogical(e) });
+      this.emit({ kind: 'pointer', phase: 'move', pointerType: e.pointerType, ...this.toLogical(e) });
     };
     const up = (e: PointerEvent) => {
       if (!start || e.pointerId !== start.id) return;
       const s = start;
       start = null;
       if (!this.enabled()) return;
-      if (this.def.touch.pointer) this.emit({ kind: 'pointer', phase: 'up', ...this.toLogical(e) });
+      if (this.def.touch.pointer)
+        this.emit({ kind: 'pointer', phase: 'up', button: e.button, pointerType: e.pointerType, ...this.toLogical(e) });
       const dx = e.clientX - s.x;
       const dy = e.clientY - s.y;
       const dist = Math.hypot(dx, dy);
@@ -113,6 +115,9 @@ export class InputManager {
       }
     };
     const cancel = () => (start = null);
+    const noMenu = (e: Event) => e.preventDefault();
+    c.addEventListener('contextmenu', noMenu);
+    this.cleanup.push(() => c.removeEventListener('contextmenu', noMenu));
 
     c.addEventListener('pointerdown', down);
     c.addEventListener('pointermove', move);

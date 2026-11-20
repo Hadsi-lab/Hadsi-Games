@@ -14,14 +14,14 @@ npm run build      # type-check + production build to dist/
 | --- | --- | --- |
 | 01 | Serpentine (snake-style) | Not in repo (skipped) |
 | 02 | Brick Bash (brick breaker) | Playable |
-| 03 | Stackfall (falling blocks) | Planned |
-| 04 | Klondike (solitaire) | Planned |
-| 05 | Dot Maze (maze chaser) | Planned |
-| 06 | Hop Home (road crosser) | Planned |
-| 07 | Star Siege (space shooter) | Planned |
-| 08 | Rock Splitter (asteroid blaster) | Planned |
-| 09 | Mine Field (minesweeper) | Planned |
-| 10 | Doubles (2048-style) | Planned |
+| 03 | Stackfall (falling blocks) | Playable |
+| 04 | Klondike (solitaire) | Playable |
+| 05 | Dot Maze (maze chaser) | Playable |
+| 06 | Hop Home (road crosser) | Playable |
+| 07 | Star Siege (space shooter) | Playable |
+| 08 | Rock Splitter (asteroid blaster) | Playable |
+| 09 | Mine Field (minesweeper) | Playable |
+| 10 | Doubles (2048-style) | Playable |
 
 ## Structure
 
@@ -47,6 +47,14 @@ src/
   games/
     registry.ts        list of playable games
     brickbash.ts
+    stackfall.ts
+    klondike.ts
+    dotmaze.ts
+    hophome.ts
+    starsiege.ts
+    rocksplitter.ts
+    minefield.ts
+    doubles.ts
 ```
 
 ## Adding a game
@@ -94,7 +102,7 @@ Call `ctx.sfx.play('eat' | 'hit' | 'shoot' | 'explode' | 'line' | ...)` for a pr
 
 ## Deploy
 
-`.github/workflows/pages.yml` builds the site and publishes `dist/` to GitHub Pages on every push to `main` (or run it by hand from the Actions tab). In the repo, set Settings → Pages → Source to **GitHub Actions** once. `vite.config.ts` uses a relative `base`, so the build works at `https://<owner>.github.io/<repo>/`.
+`.github/workflows/pages.yml` builds the site and publishes `dist/` to GitHub Pages on every push to `main` (or run it by hand from the Actions tab). In the repo, set Settings → Pages → Source to **GitHub Actions** once. `vite.config.ts` uses a relative `base`, so the build works at `https://<owner>.github.io/<repo>/` (the repo part is case-sensitive: https://hadsi-lab.github.io/Hadsi-Games/).
 
 ## Storage
 

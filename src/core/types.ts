@@ -2,11 +2,21 @@ export type Action = 'up' | 'down' | 'left' | 'right' | 'a' | 'b';
 
 export type GameInput =
   | { kind: 'press' | 'release'; action: Action }
-  | { kind: 'pointer'; phase: 'down' | 'move' | 'up'; x: number; y: number };
+  | {
+      kind: 'pointer';
+      phase: 'down' | 'move' | 'up';
+      x: number;
+      y: number;
+      /** Mouse button for down/up (0 primary, 1 middle, 2 secondary). */
+      button?: number;
+      pointerType?: string;
+    };
 
 export type SfxName =
   | 'blip' | 'select' | 'eat' | 'hit' | 'bounce' | 'brick' | 'shoot' | 'explode'
-  | 'line' | 'powerup' | 'lose' | 'win' | 'levelup' | 'start' | 'pause';
+  | 'line' | 'powerup' | 'lose' | 'win' | 'levelup' | 'start' | 'pause'
+  | 'move' | 'rotate' | 'drop' | 'card' | 'flag' | 'reveal' | 'merge' | 'hop'
+  | 'splash' | 'thrust' | 'warp' | 'chomp' | 'power' | 'ghost' | 'tick';
 
 export interface ToneOpts {
   freq: number;
@@ -65,7 +75,7 @@ export interface TouchLayout {
   /** Forward pointer events (logical coordinates) to the game. */
   pointer?: boolean;
   /** A short tap on the canvas presses this action. */
-  tap?: 'a';
+  tap?: Action;
 }
 
 export interface GameDef {
