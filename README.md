@@ -18,7 +18,7 @@ npm run build      # type-check + production build to dist/
 | 04 | Klondike (solitaire) | Playable |
 | 05 | Dot Maze (maze chaser) | Playable |
 | 06 | Hop Home (road crosser) | Playable |
-| 07 | Star Siege (space shooter) | Planned |
+| 07 | Star Siege (space shooter) | Playable |
 | 08 | Rock Splitter (asteroid blaster) | Planned |
 | 09 | Mine Field (minesweeper) | Planned |
 | 10 | Doubles (2048-style) | Planned |
@@ -51,6 +51,7 @@ src/
     klondike.ts
     dotmaze.ts
     hophome.ts
+    starsiege.ts
 ```
 
 ## Adding a game
