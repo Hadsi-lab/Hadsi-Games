@@ -171,7 +171,8 @@ export function mountGameScreen(root: HTMLElement, def: GameDef, exit: () => voi
     overlay.innerHTML = `<div class="gs-panel">${html}</div>`;
   };
 
-  const focusFirst = () => overlay.querySelector<HTMLElement>('[data-autofocus], button, input')?.focus();
+  const focusFirst = () =>
+    (overlay.querySelector<HTMLElement>('[data-autofocus]') ?? overlay.querySelector<HTMLElement>('button, input'))?.focus();
 
   const showReady = () => {
     const isTouch = coarse();

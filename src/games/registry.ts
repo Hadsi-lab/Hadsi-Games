@@ -1,13 +1,13 @@
 import type { GameDef, UpcomingGame } from '../core/types';
 import { brickBash } from './brickbash';
 import { stackfall } from './stackfall';
+import { klondike } from './klondike';
 
 /** Playable games, in lobby order. */
-export const games: GameDef[] = [brickBash, stackfall];
+export const games: GameDef[] = [brickBash, stackfall, klondike];
 
 /** Planned games, shown locked in the lobby. Build order matches this list. */
 export const upcoming: UpcomingGame[] = [
-  { id: 'klondike', title: 'Klondike', tagline: 'Classic patience, draw 1 or 3.', color: '#7cff6b' },
   { id: 'dotmaze', title: 'Dot Maze', tagline: 'Eat the dots, dodge four hunters.', color: '#ffe14d' },
   { id: 'hophome', title: 'Hop Home', tagline: 'Cross the road, ride the river.', color: '#5dff9d' },
   { id: 'starsiege', title: 'Star Siege', tagline: 'Hold the line against the fleet.', color: '#b26bff' },

@@ -15,7 +15,7 @@ npm run build      # type-check + production build to dist/
 | 01 | Serpentine (snake-style) | Not in repo (skipped) |
 | 02 | Brick Bash (brick breaker) | Playable |
 | 03 | Stackfall (falling blocks) | Playable |
-| 04 | Klondike (solitaire) | Planned |
+| 04 | Klondike (solitaire) | Playable |
 | 05 | Dot Maze (maze chaser) | Planned |
 | 06 | Hop Home (road crosser) | Planned |
 | 07 | Star Siege (space shooter) | Planned |
@@ -48,6 +48,7 @@ src/
     registry.ts        list of playable games
     brickbash.ts
     stackfall.ts
+    klondike.ts
 ```
 
 ## Adding a game
