@@ -21,7 +21,7 @@ npm run build      # type-check + production build to dist/
 | 07 | Star Siege (space shooter) | Playable |
 | 08 | Rock Splitter (asteroid blaster) | Playable |
 | 09 | Mine Field (minesweeper) | Playable |
-| 10 | Doubles (2048-style) | Planned |
+| 10 | Doubles (2048-style) | Playable |
 
 ## Structure
 
@@ -54,6 +54,7 @@ src/
     starsiege.ts
     rocksplitter.ts
     minefield.ts
+    doubles.ts
 ```
 
 ## Adding a game

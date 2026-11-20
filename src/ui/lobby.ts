@@ -45,7 +45,7 @@ export function mountLobby(root: HTMLElement): () => void {
     <div class="lobby mn">
       <header class="lb-head">
         <div>
-          <p class="mn-eyebrow">${games.length} of ${total} playable</p>
+          <p class="mn-eyebrow">${upcoming.length ? `${games.length} of ${total} playable` : `${games.length} games`}</p>
           <h1 class="mn-display">Arcade</h1>
         </div>
         <button type="button" class="mn-icon-btn" data-settings aria-label="Settings">${icon('settings', 22)}</button>
