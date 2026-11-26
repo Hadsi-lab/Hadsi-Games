@@ -2,6 +2,9 @@ import { mountLobby } from './ui/lobby';
 import { mountGameScreen } from './ui/gameScreen';
 import { games } from './games/registry';
 import { getSettings, subscribe } from './core/settings';
+import { registerServiceWorker } from './core/install';
+
+registerServiceWorker();
 
 const app = document.getElementById('app')!;
 let unmount: (() => void) | null = null;

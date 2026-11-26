@@ -4,6 +4,8 @@ import { getSettings, subscribe } from '../core/settings';
 import { getMode } from './modes';
 import { openSettings, settingsOpen } from './settingsDialog';
 import { esc, icon } from './icons';
+import { installMode, onInstallChange, promptInstall } from '../core/install';
+import { showIosInstallHint } from './installHint';
 
 const PW = 320;
 const PH = 200;
@@ -48,7 +50,10 @@ export function mountLobby(root: HTMLElement): () => void {
           <p class="mn-eyebrow">${upcoming.length ? `${games.length} of ${total} playable` : `${games.length} games`}</p>
           <h1 class="mn-display">Arcade</h1>
         </div>
-        <button type="button" class="mn-icon-btn" data-settings aria-label="Settings">${icon('settings', 22)}</button>
+        <div class="lb-actions">
+          <button type="button" class="mn-btn lb-install" data-install hidden>${icon('download', 18)}<span>Install</span></button>
+          <button type="button" class="mn-icon-btn" data-settings aria-label="Settings">${icon('settings', 22)}</button>
+        </div>
       </header>
       <ul class="lb-grid" role="list">${playable}${locked}</ul>
       <footer class="lb-foot">
@@ -58,10 +63,20 @@ export function mountLobby(root: HTMLElement): () => void {
 
   root.querySelector('[data-settings]')!.addEventListener('click', () => openSettings());
 
+  // Install button: browser prompt where supported, Share-sheet instructions on iPhone/iPad.
+  const installBtn = root.querySelector<HTMLButtonElement>('[data-install]')!;
+  const syncInstall = () => (installBtn.hidden = installMode() === null);
+  installBtn.addEventListener('click', () => {
+    if (installMode() === 'ios') showIosInstallHint();
+    else void promptInstall();
+  });
+  const unsubInstall = onInstallChange(syncInstall);
+  syncInstall();
+
   // Arrow-key navigation across the grid.
   const cards = [...root.querySelectorAll<HTMLElement>('[data-card]')];
   const onKey = (e: KeyboardEvent) => {
-    if (settingsOpen() || e.defaultPrevented) return;
+    if (settingsOpen() || e.defaultPrevented || document.querySelector('.mn-backdrop')) return;
     const i = cards.indexOf(document.activeElement as HTMLElement);
     if (i < 0) {
       if (e.key.startsWith('Arrow')) {
@@ -117,6 +132,7 @@ export function mountLobby(root: HTMLElement): () => void {
   return () => {
     cancelAnimationFrame(raf);
     unsub();
+    unsubInstall();
     window.removeEventListener('keydown', onKey);
     root.innerHTML = '';
   };

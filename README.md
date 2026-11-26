@@ -31,7 +31,7 @@ npm run build      # type-check + production build to dist/
 
 ```
 src/
-  main.ts              hash router (#/ lobby, #/play/<id>), global settings hookup
+  main.ts              hash router (#/ lobby, #/play/<id>), global settings hookup, service worker
   modernist.css        vendored Modernist design-system tokens and components
   styles.css           app layer: lobby, settings, retro game screen, CRT effect
   core/
@@ -42,11 +42,13 @@ src/
     storage.ts         namespaced localStorage helpers
     settings.ts        persisted settings with subscribe()
     highscores.ts      top-10 tables
+    install.ts         install prompt, standalone detection, service worker registration
   ui/
     icons.ts           inlined Lucide icons
     lobby.ts           card grid with animated previews
     gameScreen.ts      runner: HUD, canvas scaling, start/pause/game over, initials
     settingsDialog.ts  sound, volume, touch scheme, scanlines, reduced motion
+    installHint.ts     Add to Home Screen steps for iPhone and iPad
     modes.ts           per-game mode selection
   games/
     registry.ts        list of playable games
@@ -112,6 +114,10 @@ Call `ctx.sfx.play('eat' | 'hit' | 'shoot' | 'explode' | 'line' | ...)` for a pr
 ## Deploy
 
 `.github/workflows/pages.yml` builds the site and publishes `dist/` to GitHub Pages on every push to `main` (or run it by hand from the Actions tab). In the repo, set Settings → Pages → Source to **GitHub Actions** once. `vite.config.ts` uses a relative `base`, so the build works at `https://<owner>.github.io/<repo>/` (the repo part is case-sensitive: https://hadsi-lab.github.io/Hadsi-Games/).
+
+## Install as an app
+
+The site is a Progressive Web App: `public/manifest.webmanifest`, joystick icons in `public/icons/` (SVG sources plus rendered PNGs, including maskable and Apple touch sizes), and `public/sw.js` for offline play (network-first for the page, cache-first for hashed assets and fonts). The lobby shows an **Install** button when the browser offers an install prompt (Chrome, Edge, Android), and Share → Add to Home Screen instructions on iPhone and iPad.
 
 ## Storage
 
