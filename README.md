@@ -25,6 +25,7 @@ npm run build      # type-check + production build to dist/
 | 11 | Drop Four (four in a row) | Playable |
 | 12 | Noughts & Crosses | Playable |
 | 13 | Pairs (memory) | Playable |
+| 14 | Wingbeat (one-button flyer) | Playable |
 
 ## Structure
 
@@ -62,6 +63,7 @@ src/
     dropfour.ts
     noughts.ts
     pairs.ts
+    wingbeat.ts
 ```
 
 ## Adding a game
