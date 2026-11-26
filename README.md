@@ -23,6 +23,7 @@ npm run build      # type-check + production build to dist/
 | 09 | Mine Field (minesweeper) | Playable |
 | 10 | Doubles (2048-style) | Playable |
 | 11 | Drop Four (four in a row) | Playable |
+| 12 | Noughts & Crosses | Playable |
 
 ## Structure
 
@@ -58,6 +59,7 @@ src/
     minefield.ts
     doubles.ts
     dropfour.ts
+    noughts.ts
 ```
 
 ## Adding a game

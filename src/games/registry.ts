@@ -10,9 +10,10 @@ import { rockSplitter } from './rocksplitter';
 import { mineField } from './minefield';
 import { doubles } from './doubles';
 import { dropFour } from './dropfour';
+import { noughts } from './noughts';
 
 /** Playable games, in lobby order. */
-export const games: GameDef[] = [serpentine, brickBash, stackfall, klondike, dotMaze, hopHome, starSiege, rockSplitter, mineField, doubles, dropFour];
+export const games: GameDef[] = [serpentine, brickBash, stackfall, klondike, dotMaze, hopHome, starSiege, rockSplitter, mineField, doubles, dropFour, noughts];
 
 /** Planned games, shown locked in the lobby. Build order matches this list. */
 export const upcoming: UpcomingGame[] = [
