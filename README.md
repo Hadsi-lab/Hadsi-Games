@@ -12,7 +12,7 @@ npm run build      # type-check + production build to dist/
 
 | # | Game | Status |
 | --- | --- | --- |
-| 01 | Serpentine (snake-style) | Not in repo (skipped) |
+| 01 | Serpentine (snake-style) | Playable |
 | 02 | Brick Bash (brick breaker) | Playable |
 | 03 | Stackfall (falling blocks) | Playable |
 | 04 | Klondike (solitaire) | Playable |
@@ -22,6 +22,10 @@ npm run build      # type-check + production build to dist/
 | 08 | Rock Splitter (asteroid blaster) | Playable |
 | 09 | Mine Field (minesweeper) | Playable |
 | 10 | Doubles (2048-style) | Playable |
+| 11 | Drop Four (four in a row) | Playable |
+| 12 | Noughts & Crosses | Playable |
+| 13 | Pairs (memory) | Playable |
+| 14 | Wingbeat (one-button flyer) | Playable |
 
 ## Structure
 
@@ -46,6 +50,7 @@ src/
     modes.ts           per-game mode selection
   games/
     registry.ts        list of playable games
+    snake.ts
     brickbash.ts
     stackfall.ts
     klondike.ts
@@ -55,6 +60,10 @@ src/
     rocksplitter.ts
     minefield.ts
     doubles.ts
+    dropfour.ts
+    noughts.ts
+    pairs.ts
+    wingbeat.ts
 ```
 
 ## Adding a game

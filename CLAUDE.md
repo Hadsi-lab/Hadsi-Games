@@ -8,9 +8,8 @@ Context for Claude Code. Read README.md first; it documents the architecture and
 - `npm run build`: runs `tsc` and then `vite build`. It must pass with zero errors before a game counts as done.
 
 ## State
-- Done: the lobby, the runner (`ui/gameScreen.ts`), input, audio, high scores, settings, and all nine games: Brick Bash, Stackfall, Klondike, Dot Maze, Hop Home, Star Siege, Rock Splitter, Mine Field and Doubles. The framework was rebuilt from the README spec because the original `src/` was never committed.
-- Serpentine (`games/snake.ts`) was never committed and is skipped for now.
-- Next: a polish pass covering transitions, mobile layout checks and an accessibility audit. Optionally rebuild Serpentine.
+- Done: the lobby, the runner (`ui/gameScreen.ts`), input, audio, high scores, settings, and these games: Serpentine, Brick Bash, Stackfall, Klondike, Dot Maze, Hop Home, Star Siege, Rock Splitter, Mine Field, Doubles, Drop Four, Noughts & Crosses, Pairs and Wingbeat. The framework was rebuilt from the README spec because the original `src/` was never committed.
+- Next: a polish pass covering transitions, mobile layout checks and an accessibility audit.
 - Deploy: `.github/workflows/pages.yml` builds and publishes `dist/` to GitHub Pages on every push to `main`.
 
 ## Rules for every new game
@@ -34,6 +33,9 @@ Context for Claude Code. Read README.md first; it documents the architecture and
 - Rock Splitter: rotate, thrust and fire. Rocks split large → medium → small, the screen wraps, and there's a hyperspace jump on b.
 - Mine Field: Beginner / Intermediate / Expert `modes`, a safe first click, chording, long-press to flag on touch, time-based score per mode.
 - Doubles: swipe or arrows, merge animation (skipped when reduced motion is on), a keep-playing prompt after 2048.
+- Drop Four / Noughts & Crosses: Easy / Medium / Hard CPU and 2 Players `modes`. Against the CPU a win scores 3, a draw 1, and a loss ends the run; 2 Players is first to 3 wins.
+- Pairs: 4×4 / 6×6 `modes`, time-based score per mode.
+- Wingbeat: one button (Space/Up/X or touch-down) to flap through gates that tighten and speed up.
 
 ## Style
 - The lobby and settings use the Modernist system (`src/modernist.css`): Archivo, #f3f2f2 / #201e1d / #ec3013, 0 radius, 2px rules, flush-left labels, Lucide icons.
