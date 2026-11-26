@@ -8,8 +8,8 @@ Context for Claude Code. Read README.md first; it documents the architecture and
 - `npm run build`: runs `tsc` and then `vite build`. It must pass with zero errors before a game counts as done.
 
 ## State
-- Done: the lobby, the runner (`ui/gameScreen.ts`), input, audio, high scores, settings, and these games: Serpentine, Brick Bash, Stackfall, Klondike, Dot Maze, Hop Home, Star Siege, Rock Splitter, Mine Field, Doubles, Drop Four and Noughts & Crosses. The framework was rebuilt from the README spec because the original `src/` was never committed.
-- In progress: Pairs, Wingbeat (one-button flyer).
+- Done: the lobby, the runner (`ui/gameScreen.ts`), input, audio, high scores, settings, and these games: Serpentine, Brick Bash, Stackfall, Klondike, Dot Maze, Hop Home, Star Siege, Rock Splitter, Mine Field, Doubles, Drop Four, Noughts & Crosses and Pairs. The framework was rebuilt from the README spec because the original `src/` was never committed.
+- In progress: Wingbeat (one-button flyer).
 - Then: a polish pass covering transitions, mobile layout checks and an accessibility audit.
 - Deploy: `.github/workflows/pages.yml` builds and publishes `dist/` to GitHub Pages on every push to `main`.
 

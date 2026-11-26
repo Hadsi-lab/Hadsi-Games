@@ -24,6 +24,7 @@ npm run build      # type-check + production build to dist/
 | 10 | Doubles (2048-style) | Playable |
 | 11 | Drop Four (four in a row) | Playable |
 | 12 | Noughts & Crosses | Playable |
+| 13 | Pairs (memory) | Playable |
 
 ## Structure
 
@@ -60,6 +61,7 @@ src/
     doubles.ts
     dropfour.ts
     noughts.ts
+    pairs.ts
 ```
 
 ## Adding a game
