@@ -12,7 +12,7 @@ npm run build      # type-check + production build to dist/
 
 | # | Game | Status |
 | --- | --- | --- |
-| 01 | Serpentine (snake-style) | Not in repo (skipped) |
+| 01 | Serpentine (snake-style) | Playable |
 | 02 | Brick Bash (brick breaker) | Playable |
 | 03 | Stackfall (falling blocks) | Playable |
 | 04 | Klondike (solitaire) | Playable |
@@ -46,6 +46,7 @@ src/
     modes.ts           per-game mode selection
   games/
     registry.ts        list of playable games
+    snake.ts
     brickbash.ts
     stackfall.ts
     klondike.ts

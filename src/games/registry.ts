@@ -1,4 +1,5 @@
 import type { GameDef, UpcomingGame } from '../core/types';
+import { serpentine } from './snake';
 import { brickBash } from './brickbash';
 import { stackfall } from './stackfall';
 import { klondike } from './klondike';
@@ -10,7 +11,7 @@ import { mineField } from './minefield';
 import { doubles } from './doubles';
 
 /** Playable games, in lobby order. */
-export const games: GameDef[] = [brickBash, stackfall, klondike, dotMaze, hopHome, starSiege, rockSplitter, mineField, doubles];
+export const games: GameDef[] = [serpentine, brickBash, stackfall, klondike, dotMaze, hopHome, starSiege, rockSplitter, mineField, doubles];
 
 /** Planned games, shown locked in the lobby. Build order matches this list. */
 export const upcoming: UpcomingGame[] = [
