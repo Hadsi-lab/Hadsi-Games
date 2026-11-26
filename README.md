@@ -22,6 +22,7 @@ npm run build      # type-check + production build to dist/
 | 08 | Rock Splitter (asteroid blaster) | Playable |
 | 09 | Mine Field (minesweeper) | Playable |
 | 10 | Doubles (2048-style) | Playable |
+| 11 | Drop Four (four in a row) | Playable |
 
 ## Structure
 
@@ -56,6 +57,7 @@ src/
     rocksplitter.ts
     minefield.ts
     doubles.ts
+    dropfour.ts
 ```
 
 ## Adding a game
